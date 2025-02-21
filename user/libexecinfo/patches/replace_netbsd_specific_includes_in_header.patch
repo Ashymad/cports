@@ -1,0 +1,22 @@
+diff --git a/src/lib/libexecinfo/execinfo.h b/src/lib/libexecinfo/execinfo.h
+index 661efd240..a10223f8f 100644
+--- a/src/lib/libexecinfo/execinfo.h
++++ b/src/lib/libexecinfo/execinfo.h
+@@ -31,9 +31,14 @@
+ #ifndef _EXECINFO_H_
+ #define _EXECINFO_H_
+ 
+-#include <sys/cdefs.h>
+-#include <sys/featuretest.h>
+-#include <sys/ansi.h>
++#include <sys/types.h>
++#ifdef __cplusplus
++#define __BEGIN_DECLS extern "C" {
++#define __END_DECLS }
++#else
++#define __BEGIN_DECLS
++#define __END_DECLS
++#endif
+   
+ #ifdef  _BSD_SIZE_T_
+ typedef _BSD_SIZE_T_    size_t;
