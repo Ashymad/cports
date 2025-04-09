@@ -1,5 +1,5 @@
 pkgname = "deno"
-pkgver = "2.2.5"
+pkgver = "2.2.6"
 _v8ver = "135.0.0"
 pkgrel = 0
 build_wrksrc = "cli"
@@ -37,7 +37,7 @@ source = [
 ]
 source_paths = ["", "vendor/v8"]
 sha256 = [
-    "1461560252978f42b3d0a575ec077f6c2f9621cc03b1af23a277fd6d9cc6053e",
+    "7a4bb87163f68de848faac5e49fee4a432fa83c8e9dcec53daa0c3d3178f3b82",
     "bc24d3e68c7e9b581fce2f0ceb9d1ad61565bf783a36d80d530ccf2be212a295",
 ]
 tool_flags = {"RUSTFLAGS": ["-l", "execinfo"]}
