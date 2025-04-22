@@ -1,6 +1,6 @@
 pkgname = "deno"
-pkgver = "2.2.6"
-_v8ver = "135.0.0"
+pkgver = "2.2.10"
+_v8ver = "135.1.0"
 pkgrel = 0
 build_wrksrc = "cli"
 build_style = "cargo"
@@ -37,12 +37,12 @@ source = [
 ]
 source_paths = ["", "vendor/v8"]
 sha256 = [
-    "7a4bb87163f68de848faac5e49fee4a432fa83c8e9dcec53daa0c3d3178f3b82",
-    "bc24d3e68c7e9b581fce2f0ceb9d1ad61565bf783a36d80d530ccf2be212a295",
+    "e1f9bf100b96a300cdf9ce666a4dec8eaa9c22b248ef9ea1bcbc43897c1559e7",
+    "5861d62596971e448da865320a9ac547e2526fdf9eaf4fb40bf8a9f465bccecb",
 ]
 tool_flags = {"RUSTFLAGS": ["-l", "execinfo"]}
 # Check takes an extremely long time
-options = ["!check"]
+options = ["!check", "!lto"]
 
 
 def pre_prepare(self):
