@@ -1,6 +1,6 @@
 pkgname = "deno"
-pkgver = "2.2.11"
-_v8ver = "135.1.0"
+pkgver = "2.2.6"
+_v8ver = "135.0.0"
 pkgrel = 0
 build_wrksrc = "cli"
 build_style = "cargo"
