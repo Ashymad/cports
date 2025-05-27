@@ -1,0 +1,18 @@
+diff --git a/cli/snapshot/build.rs b/cli/snapshot/build.rs
+index 9f08ac0e9..f4fabd966 100644
+--- a/cli/snapshot/build.rs
++++ b/cli/snapshot/build.rs
+@@ -8,7 +8,12 @@ fn main() {
+   {
+     let o = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+     let cli_snapshot_path = o.join("CLI_SNAPSHOT.bin");
+-    create_cli_snapshot(cli_snapshot_path);
++    let thread = std::thread::Builder::new().stack_size(8 * 1024 * 1024);
++    thread.spawn(move || {
++      create_cli_snapshot(cli_snapshot_path);
++
++    }).unwrap().join().unwrap();
++    println!("cargo:rustc-link-arg=-Wl,-z,stack-size=0x800000");
+   }
+ }
+ 

@@ -1,6 +1,6 @@
 pkgname = "libexecinfo"
 pkgver = "10.1"
-pkgrel = 1
+pkgrel = 2
 build_wrksrc = f"src/lib/{pkgname}"
 build_style = "makefile"
 make_cmd = "bmake"
@@ -13,8 +13,7 @@ makedepends = [
 depends = [
     "elfutils",
 ]
-pkgdesc = "Lbsidjhsadkjh"
-maintainer = "Ashymad <ashymad@posteo.net>"
+pkgdesc = "Library for inspecting program's backtrace"
 license = "BSD-2-Clause"
 url = "https://www.netbsd.org"
 source = (
@@ -31,18 +30,21 @@ tool_flags = {
     ],
     "LDFLAGS": ["-lelf"],
 }
+# The tests don't pass in bubblewrap
+options = ["!check"]
+
 
 def prepare(self):
     with self.pushd(self.build_wrksrc):
         self.mkdir("include/sys", parents=True)
         self.ln_s("/dev/null", "include/sys/cdefs.h")
 
+
 @subpackage(f"{pkgname}-devel")
 def _(self):
     return self.default_devel()
 
+
 def post_install(self):
     self.install_license("../../distrib/notes/common/legal.common")
 
-def check(self):
-    pass

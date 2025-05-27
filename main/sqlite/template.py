@@ -1,13 +1,14 @@
 pkgname = "sqlite"
 pkgver = "3.49.2"
 _amalg = "3490200"
-pkgrel = 0
+pkgrel = 1
 build_style = "configure"
 configure_args = [
     "--prefix=/usr",
     "--enable-fts3",
     "--enable-fts4",
     "--enable-fts5",
+    "--enable-session",
     "--enable-shared",
     "--enable-threadsafe",
     "--editline",
@@ -36,6 +37,7 @@ _cflags = [
     "-DSQLITE_ENABLE_COLUMN_METADATA",
     "-DSQLITE_ENABLE_DBSTAT_VTAB",
     "-DSQLITE_ENABLE_DESERIALIZE",
+    "-DSQLITE_ENABLE_SESSION",
     "-DSQLITE_ENABLE_FTS3_PARENTHESIS",
     "-DSQLITE_ENABLE_FTS3_TOKENIZER=1",
     "-DSQLITE_ENABLE_STAT4=1",
